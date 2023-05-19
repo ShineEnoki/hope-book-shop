@@ -1,5 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
+//icons
+import { ImCancelCircle } from 'react-icons/im'
 const Modal=({show,item,onClose})=>{
     if(!show)
     {
@@ -8,9 +10,16 @@ const Modal=({show,item,onClose})=>{
     let thumbnail=item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.smallThumbnail;
     return(
         <>
-            <div className="overlay z-20">
-                <div className="overlay-inner">
-                    <button className="close" onClick={onClose}>x</button>
+            <div className="overlay z-20 ">
+                <div className="overlay-inner rounded-md">
+                    {/* CLOSE BUTTON */}
+                    <button 
+                        className="close text-3xl" 
+                        onClick={onClose}
+                    >
+                        <ImCancelCircle />
+                    </button>
+
                     <div className="inner-box">
                         <Image 
                             src={thumbnail} alt="" 

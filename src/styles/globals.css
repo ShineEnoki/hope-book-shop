@@ -8,8 +8,8 @@
     font-family: 'Poppins', sans-serif;
 }
 :root{
-    --primary-color:#755139FF;
-    --secondary-color:#D4B996FF;
+    --primary-color:#755139FF; 
+    --secondary-color:#D4B996FF; 
 }
 body{
     background-color: var(--primary-color);
@@ -25,6 +25,7 @@ html{
     display: flex;
     align-items: center;
     position: relative;
+    margin-top: 50px;
 }
 .header::before{
     content: "";
@@ -99,11 +100,11 @@ html{
     position: relative;
 }
 .card:hover{
-    transform: scale(0.9);
+    transform: scale(1.1);
     background-color: rgba(255,255,255,0.8);
 }
 .card img{
-    width: 100%;
+    width: auto;
     height: 200px;
     border-radius: 1rem 1rem 0 0;
 }
@@ -201,6 +202,11 @@ html{
 .marquee{
     width: fit-content;
     animation: marquee 5s linear infinite;
+}
+
+.marquee p {
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: var(--secondary-color);
 }
 
 @media (max-width: 600px) {

@@ -2,24 +2,38 @@ import React, { useContext } from 'react'
 import { SIdebarContext } from '../../context/SidebarContext'
 //icons
 import { BsArrowRight } from 'react-icons/bs'
+import { CartContext } from '../../context/CartContext';
 const Sidebar = () => {
-    const { isSidebarOpen, handleClose } = useContext(SIdebarContext)
-    return (
-        <div className={` ${isSidebarOpen ? 'right-0' : '-right-full'} bg-secondary w-full md:w-[35vw] xl:w-[30vw] h-full fixed top-0 transition duration-300 p-3 `}>
-            <div className='flex flex-row justify-between items-center text-primary'
+    const { isSidebarOpen, handleSidebarClose } = useContext(SIdebarContext);
 
+    const { cart, addBookToCart }  = useContext(CartContext);
+
+    return (
+        <div 
+            className={` ${isSidebarOpen ? 'right-0' : '-right-full'} bg-primary border-l-2 border-secondary w-full md:w-[35vw] xl:w-[30vw] h-full fixed top-0 transition duration-300 p-3 z-30 text-secondary`}>
+            <div 
+                className='flex flex-row justify-between items-center '
             >
-                <div className='uppercase text-sm font-semibold'>
+                <div className='uppercase font-semibold'>
                     Book Cart
                 </div>
+
+                {/* CLOSE SIDEBAR ICON */}
                 <div 
-                    onClick={handleClose}
+                    onClick={handleSidebarClose}
                     className='cursor-pointer text-3xl'
                 >
                     <BsArrowRight  />
                 </div>
             </div>
-            Sidebar
+            
+            <div className=''>
+                {
+                    cart.map((book) => {
+                        <div> hello </div>
+                    })
+                }
+            </div>
         </div>
     )
 }

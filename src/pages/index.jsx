@@ -40,19 +40,24 @@ const Main = () => {
         setIsSidebarOpen(true)
     }
 
+    console.log(bookData.length)
+
     return (
         <div>
             <main>
                 {/* Nav */}
-                <div className="flex justify-end w-[90%] max-w-[100vh] mx-auto p-3 ">
+                <div className="flex text-white bg-primary justify-between w-full fixed top-0 z-[29] p-3 ">
                     {/* Warn context */}
-                    <div className="w-[100vw] overflow-hidden">
-                        <p className="marquee text-3xl text-secondary"> Use VPN to bypass country </p>
+                    <div className="w-[100vw] overflow-hidden flex justify-start">
+                        <p 
+                            className="marquee text-3xl "
+                        > Use VPN to bypass country </p>
+
                     </div>
 
                     {/* CART */}
                     <div
-                        className="text-3xl text-secondary cursor-pointer "
+                        className="text-3xl cursor-pointer "
                         onClick={handleCartIconClick}
                     >
                         <BsFillCartCheckFill />
@@ -60,7 +65,7 @@ const Main = () => {
                 </div>
 
 
-
+                {/* Header */}
                 <div className="header">
 
                     <div className="row1">
@@ -83,6 +88,7 @@ const Main = () => {
                     </div>
                 </div>
 
+                {/* Books */}
                 <div className="container">
                     {
                         bookData.map(book =>
