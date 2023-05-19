@@ -44,7 +44,7 @@ const Main = () => {
         <div>
             <main>
                 {/* Nav */}
-                <div className="flex justify-end w-[90%] mx-auto p-3 ">
+                <div className="flex justify-end w-[90%] max-w-[100vh] mx-auto p-3 ">
                     {/* Warn context */}
                     <div className="w-[100vw]">
                         <p className="marquee text-3xl text-secondary"> Use VPN to bypass country </p>
