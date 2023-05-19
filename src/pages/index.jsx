@@ -43,20 +43,23 @@ const Main = () => {
     return (
         <div>
             <main>
-                {/* Cart */}
+                {/* Nav */}
                 <div className="flex justify-end w-[90%] mx-auto p-3 ">
+                    {/* Warn context */}
+                    <div className="w-[100vw]">
+                        <p className="marquee text-3xl text-secondary"> Use VPN to bypass country </p>
+                    </div>
+
+                    {/* CART */}
                     <div
-                        className="text-3xl text-secondary  "
+                        className="text-3xl text-secondary cursor-pointer "
                         onClick={handleCartIconClick}
                     >
                         <BsFillCartCheckFill />
                     </div>
                 </div>
 
-                {/* Warn context */}
-                <div className="w-[100vw]">
-                    <p className="marquee text-3xl text-secondary"> Use VPN to bypass country </p>
-                </div>
+
 
                 <div className="header">
 
