@@ -190,15 +190,16 @@ html{
 }
 
 @keyframes marquee{
-    0%{
+    from{
         transform: translateX(0%);
     }
-    100%{
+    to{
         transform: translateX(100%);
     }
 }
 
 .marquee{
+    width: fit-content;
     animation: marquee 5s linear infinite;
 }
 

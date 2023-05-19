@@ -6,7 +6,7 @@ export const SIdebarContextProvider = ({children}) => {
     const [ isSidebarOpen, setIsSidebarOpen ] = useState(false);
 
     const handleSidebarClose = () => {
-        setIsOpen(false)
+        setIsSidebarOpen(false)
     }
     return(
         <SIdebarContext.Provider value={{isSidebarOpen, setIsSidebarOpen, handleSidebarClose}} >

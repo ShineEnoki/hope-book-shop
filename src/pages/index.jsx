@@ -55,7 +55,7 @@ const Main = () => {
 
                 {/* Warn context */}
                 <div className="w-[100vw]">
-                    <div className="marquee animate-marquee text-3xl text-secondary"> Use VPN to bypass country </div>
+                    <p className="marquee text-3xl text-secondary"> Use VPN to bypass country </p>
                 </div>
 
                 <div className="header">
