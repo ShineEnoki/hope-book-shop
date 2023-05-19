@@ -189,6 +189,19 @@ html{
     font-size: 13px;
 }
 
+@keyframes marquee{
+    0%{
+        transform: translateX(0%);
+    }
+    100%{
+        transform: translateX(100%);
+    }
+}
+
+.marquee{
+    animation: marquee 5s linear infinite;
+}
+
 @media (max-width: 600px) {
     .row2{
         right: 50px;

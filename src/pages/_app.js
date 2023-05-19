@@ -1,5 +1,11 @@
-import '@/styles/globals.css'
+import '@/styles/globals.css';
+import { SIdebarContextProvider } from '../../context/SidebarContext';
+
 
 export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />
+    return (
+        <SIdebarContextProvider >
+            <Component {...pageProps} />
+        </SIdebarContextProvider>
+    )
 }
