@@ -1,5 +1,8 @@
+
+//i created this side bar to get ready if i want to use
+
 import React, { useContext } from 'react'
-import { SIdebarContext } from '../../context/SidebarContext'
+import { SIdebarContext } from '../../contexts/SidebarContext'
 //icons
 import { BsArrowRight } from 'react-icons/bs'
 import { CartContext } from '../../context/CartContext';

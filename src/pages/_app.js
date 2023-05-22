@@ -1,14 +1,17 @@
 import '@/styles/globals.css';
-import { SIdebarContextProvider } from '../../context/SidebarContext';
-import { CartContextProvider } from '../../context/CartContext';
+import { SIdebarContextProvider } from '../../contexts/SidebarContext';
+import { CartContextProvider } from '../../contexts/CartContext';
+import { BooksContextProvider } from '../../contexts/booksContext';
 
 
 export default function App({ Component, pageProps }) {
     return (
-        <CartContextProvider >
-            <SIdebarContextProvider >
-                <Component {...pageProps} />
-            </SIdebarContextProvider>
-        </CartContextProvider>
+        <BooksContextProvider >
+            <CartContextProvider >
+                <SIdebarContextProvider >
+                    <Component {...pageProps} />
+                </SIdebarContextProvider>
+            </CartContextProvider>
+        </BooksContextProvider>
     )
 }

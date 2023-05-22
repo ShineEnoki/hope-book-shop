@@ -1,70 +1,46 @@
 import React, { useState, useContext } from "react";
-
-import axios from "axios";
 import BookCard from "@/components/BookCard";
 //image
 import bg2 from '../../public/assets/bg2.png';
-
 //icons
 import { AiOutlineSearch } from 'react-icons/ai';
-import { BsFillCartCheckFill } from 'react-icons/bs';
+//components
 import Image from "next/image";
-import Sidebar from "@/components/Sidebar";
-import { SIdebarContext } from "../../context/SidebarContext";
 import Footer from "@/components/Footer";
+import Nav from "@/components/Nav";
+//contexts
+import { BooksContext } from "../../contexts/booksContext";
+import { SIdebarContext } from "../../contexts/SidebarContext";
+
 const Main = () => {
 
     const [search, setSearch] = useState("");
 
     const [bookData, setData] = useState([]);
 
-    const { isSidebarOpen, setIsSidebarOpen, handleSidebarClose } = useContext(SIdebarContext)
+    const { isSidebarOpen, setIsSidebarOpen } = useContext(SIdebarContext)
 
-    const searchBook = () => {
-        axios.get('https://www.googleapis.com/books/v1/volumes?q=' + search + `&key=AIzaSyA6SaT23KNiiA6DnUfUQTvFeyAcQEkwnSU` + '&maxResults=40')
-            .then(res => setData(res.data.items))
-            .catch(err => console.log(err))
-    }
+    const { books, searchBook } = useContext(BooksContext)
 
     const handleKeypressOnSearchBox = (evt) => {
         if (evt.key === 'Enter') {
-            searchBook();
+            searchBook(search);
         }
     }
 
     const handleClickonSearchIcon = () => {
-        searchBook();
+        searchBook(search);
     }
 
     const handleCartIconClick = () => {
         setIsSidebarOpen(true)
     }
 
-    console.log(bookData.length)
-
     return (
         <div>
-            <main>
-                {/* Nav */}
-                <div className="flex text-white bg-primary justify-between w-full fixed top-0 z-[29] p-3 ">
-                    {/* Warn context */}
-                    <div className="w-[100vw] overflow-hidden flex justify-start">
-                        <p 
-                            className="marquee text-3xl "
-                        > Use VPN to bypass country </p>
-
-                    </div>
-
-                    {/* CART */}
-                    <div
-                        className="text-3xl cursor-pointer "
-                        onClick={handleCartIconClick}
-                    >
-                        <BsFillCartCheckFill />
-                    </div>
-                </div>
-
-
+            <Nav />
+            <main className="min-h-screen">
+            
                 {/* Header */}
                 <div className="header">
 
@@ -89,18 +65,16 @@ const Main = () => {
                 </div>
 
                 {/* Books */}
-                <div className="container">
+                <div className="container flex flex-wrap gap-4">
                     {
-                        bookData.map(book =>
+                        books.map(book =>
                             <BookCard book={book} key={book.id} />
                         )
                     }
                 </div>
             </main>
-            <Sidebar />
 
             <Footer />
-
         </div>
     )
 }
